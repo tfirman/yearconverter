@@ -34,3 +34,25 @@ export function secondsToJupiterYears (seconds) {
   let jupiterYears = seconds / secondsInAJupiterYear;
   return jupiterYears;
 }
+
+export function secondsToGalacticYears (seconds) {
+  const secondsInAGalacticYear = 20000000000000;
+  let galacticYears = seconds / secondsInAGalacticYear;
+  return galacticYears;
+}
+
+export function lifeExpectanciesConversion (ageInSeconds, lifeExpectancyInSeconds) {
+  if (ageInSeconds >= lifeExpectancyInSeconds) {
+    return "Congratulations! You've already exceeded your life expectancy!";
+  } else {
+    let ageDifference = lifeExpectancyInSeconds - ageInSeconds;
+    let mercuryYears = secondsToMercuryYears (ageDifference).toFixed(5);
+    let venusYears = secondsToVenusYears (ageDifference).toFixed(5);
+    let marsYears = secondsToMarsYears (ageDifference).toFixed(5);
+    let jupiterYears = secondsToJupiterYears (ageDifference).toFixed(5);
+    let outputstring = "Your remaining life expectancy is ".concat(mercuryYears, " Mercury years, or ",
+      venusYears, " Venus Years, or ", marsYears, " Mars years, or ", jupiterYears, " Jupiter years.")
+    return outputstring;
+
+  }
+}

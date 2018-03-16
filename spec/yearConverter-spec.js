@@ -1,4 +1,4 @@
-import { yearToSeconds, differenceDates, secondsToMercuryYears, secondsToVenusYears, secondsToMarsYears, secondsToJupiterYears } from '../src/yearConverter';
+import { yearToSeconds, differenceDates, secondsToMercuryYears, secondsToVenusYears, secondsToMarsYears, secondsToJupiterYears, lifeExpectanciesConversion } from '../src/yearConverter';
 
 describe('yearToSeconds', function() {
   it('should return 0 if sent a 0', function() {
@@ -41,5 +41,21 @@ describe('secondsToJupiterYears', function() {
   it('should return 1 if sent 374335776 seconds', function() {
     let testsecs = 374335776;
     expect(secondsToJupiterYears(testsecs)).toEqual(1);
+  });
+});
+
+describe('lifeExpectanciesConversion', function() {
+  it('should return congratulations if sent an age greater than life expectancy', function() {
+    let testAge = 2600000000;
+    let testExpect = 2500000000;
+    expect(lifeExpectanciesConversion(testAge, testExpect)).toEqual("Congratulations! You've already exceeded your life expectancy!");
+  });
+});
+
+describe('lifeExpectanciesConversion', function() {
+  it('should return a set of converted years if sent an age less than life expectancy', function() {
+    let testAge = 1500000000;
+    let testExpect = 2500000000;
+    expect(lifeExpectanciesConversion(testAge, testExpect)).toEqual("Your remaining life expectancy is 131.56992 Mercury years, or 51.50878 Venus Years, or 16.84798 Mars years, or 2.67140 Jupiter years.");
   });
 });
