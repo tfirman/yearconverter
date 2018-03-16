@@ -16,3 +16,21 @@ export function secondsToMercuryYears (seconds) {
   let mercuryYears = seconds / secondsInAMercuryYear;
   return mercuryYears;
 }
+
+export function secondsToVenusYears (seconds) {
+  const secondsInAVenusYear = 19414166.4;
+  let venusYears = seconds / secondsInAVenusYear;
+  return venusYears;
+}
+
+export function secondsToMarsYears (seconds) {
+  const secondsInAMarsYear = 59354294.4;
+  let marsYears = seconds / secondsInAMarsYear;
+  return marsYears;
+}
+
+export function secondsToJupiterYears (seconds) {
+  const secondsInAJupiterYear = 374335776;
+  let jupiterYears = seconds / secondsInAJupiterYear;
+  return jupiterYears;
+}
