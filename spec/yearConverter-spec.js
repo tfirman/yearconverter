@@ -22,25 +22,29 @@ describe('differenceDates', function() {
 describe('secondsToMercuryYears', function() {
   it('should return 1 if sent 7600521.6 seconds', function() {
     let testsecs = 7600521.6;
-    expect(secondsToMercuryYears(testsecs)).toEqual(1);
+    let testsecondsConverter = new secondsConverter(testsecs);
+    expect(testsecondsConverter.toMercuryYears()).toEqual(1);
   });
 });
 describe('secondsToVenusYears', function() {
   it('should return 1 if sent 19414166.4 seconds', function() {
     let testsecs = 19414166.4;
-    expect(secondsToVenusYears(testsecs)).toEqual(1);
+    let testsecondsConverter = new secondsConverter(testsecs);
+    expect(testsecondsConverter.toVenusYears()).toEqual(1);
   });
 });
 describe('secondsToMarsYears', function() {
   it('should return 1 if sent 59354294.4 seconds', function() {
     let testsecs = 59354294.4;
-    expect(secondsToMarsYears(testsecs)).toEqual(1);
+    let testsecondsConverter = new secondsConverter(testsecs);
+    expect(testsecondsConverter.toMarsYears()).toEqual(1);
   });
 });
 describe('secondsToJupiterYears', function() {
   it('should return 1 if sent 374335776 seconds', function() {
     let testsecs = 374335776;
-    expect(secondsToJupiterYears(testsecs)).toEqual(1);
+    let testsecondsConverter = new secondsConverter(testsecs);
+    expect(testsecondsConverter.toJupiterYears()).toEqual(1);
   });
 });
 
