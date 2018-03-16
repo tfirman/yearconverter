@@ -10,3 +10,9 @@ export function differenceDates (date1, date2) {
   let differenceSecs = date2TotalSecs - date1TotalSecs;
   return differenceSecs;
 }
+
+export function secondsToMercuryYears (seconds) {
+  const secondsInAMercuryYear = 7600521.6;
+  let mercuryYears = seconds / secondsInAMercuryYear;
+  return mercuryYears;
+}

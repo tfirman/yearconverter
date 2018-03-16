@@ -1,4 +1,4 @@
-import { yearToSeconds, differenceDates } from '../src/yearConverter';
+import { yearToSeconds, differenceDates, secondsToMercuryYears } from '../src/yearConverter';
 
 describe('yearToSeconds', function() {
   it('should return 0 if sent a 0', function() {
@@ -17,5 +17,11 @@ describe('differenceDates', function() {
     let testDate1 = new Date (2011, 0, 1);
     let testDate2 = new Date (2012, 1, 1);
     expect(differenceDates(testDate1, testDate2)).toEqual(34214400);
+  });
+});
+describe('secondsToMercuryYears', function() {
+  it('should return 1 if sent 7600521.6 seconds', function() {
+    let testsecs = 7600521.6;
+    expect(secondsToMercuryYears(testsecs)).toEqual(1);
   });
 });
