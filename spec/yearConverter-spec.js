@@ -1,4 +1,4 @@
-import { yearToSeconds, differenceDates, secondsToMercuryYears, secondsToVenusYears, secondsToMarsYears, secondsToJupiterYears, lifeExpectanciesConversion } from '../src/yearConverter';
+import { yearToSeconds, differenceDates, SecondsConverter, lifeExpectanciesConversion } from '../src/yearConverter';
 
 describe('yearToSeconds', function() {
   it('should return 0 if sent a 0', function() {
@@ -22,28 +22,28 @@ describe('differenceDates', function() {
 describe('secondsToMercuryYears', function() {
   it('should return 1 if sent 7600521.6 seconds', function() {
     let testsecs = 7600521.6;
-    let testsecondsConverter = new secondsConverter(testsecs);
+    let testsecondsConverter = new SecondsConverter(testsecs);
     expect(testsecondsConverter.toMercuryYears()).toEqual(1);
   });
 });
 describe('secondsToVenusYears', function() {
   it('should return 1 if sent 19414166.4 seconds', function() {
     let testsecs = 19414166.4;
-    let testsecondsConverter = new secondsConverter(testsecs);
+    let testsecondsConverter = new SecondsConverter(testsecs);
     expect(testsecondsConverter.toVenusYears()).toEqual(1);
   });
 });
 describe('secondsToMarsYears', function() {
   it('should return 1 if sent 59354294.4 seconds', function() {
     let testsecs = 59354294.4;
-    let testsecondsConverter = new secondsConverter(testsecs);
+    let testsecondsConverter = new SecondsConverter(testsecs);
     expect(testsecondsConverter.toMarsYears()).toEqual(1);
   });
 });
 describe('secondsToJupiterYears', function() {
   it('should return 1 if sent 374335776 seconds', function() {
     let testsecs = 374335776;
-    let testsecondsConverter = new secondsConverter(testsecs);
+    let testsecondsConverter = new SecondsConverter(testsecs);
     expect(testsecondsConverter.toJupiterYears()).toEqual(1);
   });
 });
