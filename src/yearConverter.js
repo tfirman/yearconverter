@@ -11,48 +11,53 @@ export function differenceDates (date1, date2) {
   return differenceSecs;
 }
 
-export function secondsToMercuryYears (seconds) {
-  const secondsInAMercuryYear = 7600521.6;
-  let mercuryYears = seconds / secondsInAMercuryYear;
-  return mercuryYears;
-}
+export class SecondsConverter {
+  constructor(secs) {
+    this.seconds = secs;
+  }
 
-export function secondsToVenusYears (seconds) {
-  const secondsInAVenusYear = 19414166.4;
-  let venusYears = seconds / secondsInAVenusYear;
-  return venusYears;
-}
+  toMercuryYears() {
+    const secondsInAMercuryYear = 7600521.6;
+    let mercuryYears = this.seconds / secondsInAMercuryYear;
+    return mercuryYears;
+  }
 
-export function secondsToMarsYears (seconds) {
-  const secondsInAMarsYear = 59354294.4;
-  let marsYears = seconds / secondsInAMarsYear;
-  return marsYears;
-}
+  toVenusYears() {
+    const secondsInAVenusYear = 19414166.4;
+    let venusYears = this.seconds / secondsInAVenusYear;
+    return venusYears;
+  }
 
-export function secondsToJupiterYears (seconds) {
-  const secondsInAJupiterYear = 374335776;
-  let jupiterYears = seconds / secondsInAJupiterYear;
-  return jupiterYears;
-}
+  toMarsYears() {
+    const secondsInAMarsYear = 59354294.4;
+    let marsYears = this.seconds / secondsInAMarsYear;
+    return marsYears;
+  }
 
-export function secondsToGalacticYears (seconds) {
-  const secondsInAGalacticYear = 20000000000000;
-  let galacticYears = seconds / secondsInAGalacticYear;
-  return galacticYears;
+  toJupiterYears() {
+    const secondsInAJupiterYear = 374335776;
+    let jupiterYears = this.seconds / secondsInAJupiterYear;
+    return jupiterYears;
+  }
+
+  toGalacticYears() {
+    const secondsInAGalacticYear = 20000000000000;
+    let galacticYears = this.seconds / secondsInAGalacticYear;
+    return galacticYears;
+  }
 }
 
 export function lifeExpectanciesConversion (ageInSeconds, lifeExpectancyInSeconds) {
   if (ageInSeconds >= lifeExpectancyInSeconds) {
     return "Congratulations! You've already exceeded your life expectancy!";
   } else {
-    let ageDifference = lifeExpectancyInSeconds - ageInSeconds;
-    let mercuryYears = secondsToMercuryYears (ageDifference).toFixed(5);
-    let venusYears = secondsToVenusYears (ageDifference).toFixed(5);
-    let marsYears = secondsToMarsYears (ageDifference).toFixed(5);
-    let jupiterYears = secondsToJupiterYears (ageDifference).toFixed(5);
+    let ageDifference = new SecondsConverter (lifeExpectancyInSeconds - ageInSeconds);
+    let mercuryYears = ageDifference.toMercuryYears().toFixed(5);
+    let venusYears = ageDifference.toVenusYears().toFixed(5);
+    let marsYears = ageDifference.toMarsYears().toFixed(5);
+    let jupiterYears = ageDifference.toJupiterYears().toFixed(5);
     let outputstring = "Your remaining life expectancy is ".concat(mercuryYears, " Mercury years, or ",
-      venusYears, " Venus Years, or ", marsYears, " Mars years, or ", jupiterYears, " Jupiter years.")
+      venusYears, " Venus Years, or ", marsYears, " Mars years, or ", jupiterYears, " Jupiter years.");
     return outputstring;
-
   }
 }
